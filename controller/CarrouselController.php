@@ -6,7 +6,7 @@ header("Access-Control-Allow-Headers: Content-Type");
 
 class CarrouselController {
     /**
-     * Obtiene las parcelas desde la base de datos y las muestra con un echo en formato JSON 
+     * Obtiene las parcelas desde la base de datos y las muestra con un echo en formato JSON
      */
     public function getPhotos() {
         // Crear una instancia del modelo
