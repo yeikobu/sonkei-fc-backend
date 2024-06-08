@@ -8,16 +8,9 @@ class CarrouselModel {
      */
     public function getPhotos() {
         $query = "SELECT * FROM `carrousel_images`";
-        $streamConnection = Connection::startConnection();
-        $res = mysqli_query($streamConnection, $query);
-        mysqli_close($streamConnection);
-
-        // Verificando si la consulta fue exitosa antes de devolver el resultado
-        if ($res) {
-            return $res;
-        } else {
-            echo "Error";
-            return false;
-        }
+        $connection = Connection::startConnection();
+        $result = mysqli_query($connection, $query);
+        mysqli_close($connection);
+        return $result;
     }
 }
