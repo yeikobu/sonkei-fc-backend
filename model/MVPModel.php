@@ -7,7 +7,11 @@ class MVPModel {
      * @return \mysqli_result|bool
      */
     public function getAllMVPs() {
-        $query = "SELECT * FROM `mvps`";
+        $query = "
+            SELECT p.id, p.name, p.img, mvps.category, mvps.award
+            FROM players AS p, mvps
+            where p.id = mvps.player_id;
+        ";
         $connection = Connection::startConnection();
         $result = mysqli_query($connection, $query);
         mysqli_close($connection);
