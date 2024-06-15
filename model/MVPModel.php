@@ -8,9 +8,10 @@ class MVPModel {
      */
     public function getAllMVPs() {
         $query = "
-            SELECT p.id, p.name, p.img, mvps.category, mvps.award
+            SELECT p.id, p.name, p.img, mvps.category, mvps.award, mvps.mvp_date AS date
             FROM players AS p, mvps
-            where p.id = mvps.player_id;
+            WHERE p.id = mvps.player_id
+            ORDER BY mvps.mvp_date DESC
         ";
         $connection = Connection::startConnection();
         $result = mysqli_query($connection, $query);
